@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
 
-    @GET("menu.json")
+    @GET("index.json")
     Call<List<Menu>> getAllData();
 }

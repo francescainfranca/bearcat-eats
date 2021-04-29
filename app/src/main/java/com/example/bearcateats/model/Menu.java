@@ -1,14 +1,10 @@
-
 package com.example.bearcateats.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
-
 public class Menu {
-
     @SerializedName("popular")
     @Expose
     private List<Popular> popular = null;
@@ -31,5 +27,4 @@ public class Menu {
     public void setRecommended(List<Recommended> recommended) {
         this.recommended = recommended;
     }
-
 }

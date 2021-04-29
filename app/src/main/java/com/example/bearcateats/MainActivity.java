@@ -19,6 +19,8 @@ import com.example.bearcateats.model.Recommended;
 import com.example.bearcateats.retrofit.ApiInterface;
 import com.example.bearcateats.retrofit.RetrofitClient;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,17 +44,21 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Menu>>() {
             @Override
             public void onResponse(Call<List<Menu>> call, Response<List<Menu>> response) {
+                System.out.println("TEST!!!!!!!!!!!!!!");
+                List<Menu> MenuList;
+                MenuList = response.body();
+                if(MenuList == null) {
+                    System.out.println("MenuList!!!!!!!!!!!!!!");
+                }
 
-                List<Menu> MenuList = response.body();
+                List <Menu> test1 = (List<Menu>) MenuList.get(0);
 
+                List<Popular> popular = ((Menu) test1).getPopular();
 
-                getPopularData(MenuList.get(0).getPopular());
+                getPopularData(popular);
+                System.out.println("GET POPULAR RAN!!!!!!!!!!!!!!");
 
                 getRecommendedData(MenuList.get(0).getRecommended());
-
-
-
-
             }
 
             @Override
@@ -85,6 +91,4 @@ public class MainActivity extends AppCompatActivity {
         recommendedRecyclerView.setAdapter(recommendedAdapter);
 
     }
-
-
 }

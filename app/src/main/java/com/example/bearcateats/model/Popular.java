@@ -5,6 +5,8 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 @Generated("jsonschema2pojo")
 public class Popular {
 
@@ -85,5 +87,4 @@ public class Popular {
     public void setNote(String note) {
         this.note = note;
     }
-
 }
