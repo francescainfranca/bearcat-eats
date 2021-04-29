@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="220dp"
+    android:layout_height="300dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:background="@drawable/recycler_bg">
+
+    <ImageView
+        android:id="@+id/recommended_image"
+        android:layout_width="213dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="4dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tikkamasala" />
+
+    <TextView
+        android:id="@+id/recommended_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Tikka Masala"
+        android:textColor="#333333"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommended_image"
+        tools:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/recommended_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="$10"
+        android:textColor="#F1F3F3"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/recommended_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="4.5"
+        android:textColor="#333333"
+        app:layout_constraintBottom_toBottomOf="@+id/recommended_star"
+        app:layout_constraintStart_toEndOf="@+id/recommended_star"
+        app:layout_constraintTop_toTopOf="@+id/recommended_star" />
+
+    <ImageView
+        android:id="@+id/recommended_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_rate"
+        tools:ignore="MissingConstraints,VectorDrawableCompat"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/recommended_delivery_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Free Delivery"
+        app:layout_constraintBottom_toBottomOf="@+id/recommended_delivery_time"
+        app:layout_constraintStart_toEndOf="@+id/recommended_delivery_time"
+        app:layout_constraintTop_toTopOf="@+id/recommended_delivery_time"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/recommended_delivery_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="30 min"
+        app:layout_constraintStart_toStartOf="@+id/recommended_star"
+        app:layout_constraintTop_toBottomOf="@+id/recommended_star" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

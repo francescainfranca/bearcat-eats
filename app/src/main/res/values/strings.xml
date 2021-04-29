@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bearcat Eats</string>
+    <string name="bearcat_eats">Bearcat Eats</string>
+    <string name="popular_items">Popular Items</string>
+    <string name="recommened_for_you">Recommened for You</string>
+    <string name="all_menu_items">All Menu Items</string>
+    <string name="todo">TODO</string>
+    <string name="search">Search...</string>
+</resources>
