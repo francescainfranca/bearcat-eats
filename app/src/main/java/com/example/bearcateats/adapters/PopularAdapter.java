@@ -16,12 +16,12 @@ import com.example.bearcateats.model.Popular;
 
 import java.util.List;
 
-public class Popular_Adapter extends RecyclerView.Adapter<Popular_Adapter.Popular_View_Holder> {
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Popular_View_Holder> {
 
     private Context context;
     private List<Popular> popularList;
 
-    public Popular_Adapter(Context context, List<Popular> popularList){
+    public PopularAdapter(Context context, List<Popular> popularList){
         this.context = context;
         this.popularList = popularList;
     }

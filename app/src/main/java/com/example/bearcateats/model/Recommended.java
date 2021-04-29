@@ -85,4 +85,5 @@ public class Recommended {
     public void setNote(String note) {
         this.note = note;
     }
+
 }

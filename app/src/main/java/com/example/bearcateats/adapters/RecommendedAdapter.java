@@ -16,12 +16,12 @@ import com.example.bearcateats.model.Recommended;
 
 import java.util.List;
 
-public class Recommended_Adapter extends RecyclerView.Adapter<Recommended_Adapter.RecommendedViewHolder> {
+public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.RecommendedViewHolder> {
 
     private Context context;
     private List<Recommended> recommendedList;
 
-    public Recommended_Adapter(Context context, List<Recommended> recommendedList){
+    public RecommendedAdapter(Context context, List<Recommended> recommendedList){
         this.context = context;
         this.recommendedList = recommendedList;
     }

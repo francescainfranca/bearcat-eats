@@ -1,16 +1,23 @@
+
 package com.example.bearcateats.model;
 
+import java.util.List;
+import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import java.util.List;
 
-public class Menu {
+@Generated("jsonschema2pojo")
+public class FoodData {
+
     @SerializedName("popular")
     @Expose
     private List<Popular> popular = null;
     @SerializedName("recommended")
     @Expose
     private List<Recommended> recommended = null;
+    @SerializedName("allmenu")
+    @Expose
+    private List<Allmenu> allmenu = null;
 
     public List<Popular> getPopular() {
         return popular;
@@ -27,4 +34,13 @@ public class Menu {
     public void setRecommended(List<Recommended> recommended) {
         this.recommended = recommended;
     }
+
+    public List<Allmenu> getAllmenu() {
+        return allmenu;
+    }
+
+    public void setAllmenu(List<Allmenu> allmenu) {
+        this.allmenu = allmenu;
+    }
+
 }
