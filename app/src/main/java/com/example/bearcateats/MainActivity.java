@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     AllMenuAdapter allMenuAdapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,21 +46,23 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<FoodData>>() {
             @Override
             public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
-                System.out.println("TEST!!!!!!!!!!!!!!");
-                List<FoodData> MenuList;
-                MenuList = response.body();
-                if(MenuList == null) {
-                    System.out.println("MenuList!!!!!!!!!!!!!!");
-                }
+                call.enqueue(new Callback<List<FoodData>>() {
+                    @Override
+                    public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                getPopularData(response.body().get(0).getPopular());
 
-                List <FoodData> test1 = (List<FoodData>) MenuList.get(0);
+                                getRecommendedData(response.body().get(0).getRecommended());
+                            }
+                        }
+                    }
 
-                List<Popular> popular = ((FoodData) test1).getPopular();
-
-                getPopularData(popular);
-                System.out.println("GET POPULAR RAN!!!!!!!!!!!!!!");
-
-                getRecommendedData(MenuList.get(0).getRecommended());
+                    @Override
+                    public void onFailure(Call<List<FoodData>> call, Throwable t) {
+                        Toast.makeText(MainActivity.this, "Server is not responding.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -68,39 +71,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        private void getPopularData(List<Popular> popularList){
 
+            popularRecyclerView = findViewById(R.id.popular_recycler);
+            popularAdapter = new PopularAdapter(this, popularList);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            popularRecyclerView.setLayoutManager(layoutManager);
+            popularRecyclerView.setAdapter(popularAdapter);
 
+        }
 
-    }
+        private void getRecommendedData(List<Recommended> recommendedList){
 
-    private void  getPopularData(List<Popular> popularList){
+            recommendedRecyclerView = findViewById(R.id.recommended_recycler);
+            recommendedAdapter = new RecommendedAdapter(this, recommendedList);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            recommendedRecyclerView.setLayoutManager(layoutManager);
+            recommendedRecyclerView.setAdapter(recommendedAdapter);
+        }
 
-        popularRecyclerView = findViewById(R.id.popular_recycler);
-        popularAdapter = new PopularAdapter(this, popularList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        popularRecyclerView.setLayoutManager(layoutManager);
-        popularRecyclerView.setAdapter(popularAdapter);
+        private void getAllMenu(List<Allmenu> allmenuList){
 
-    }
-
-    private void  getRecommendedData(List<Recommended> recommendedList){
-
-        recommendedRecyclerView = findViewById(R.id.recommended_recycler);
-        recommendedAdapter = new RecommendedAdapter(this, recommendedList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recommendedRecyclerView.setLayoutManager(layoutManager);
-        recommendedRecyclerView.setAdapter(recommendedAdapter);
-
-    }
-
-    private void  getAllMenu(List<Allmenu> allmenuList){
-
-        allMenuRecyclerView = findViewById(R.id.all_menu_recycler);
-        allMenuAdapter = new AllMenuAdapter(this, allmenuList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        allMenuRecyclerView.setLayoutManager(layoutManager);
-        allMenuRecyclerView.setAdapter(allMenuAdapter);
-        allMenuAdapter.notifyDataSetChanged();
-
+            allMenuRecyclerView = findViewById(R.id.all_menu_recycler);
+            allMenuAdapter = new AllMenuAdapter(this, allmenuList);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+            allMenuRecyclerView.setLayoutManager(layoutManager);
+            allMenuRecyclerView.setAdapter(allMenuAdapter);
+            allMenuAdapter.notifyDataSetChanged();
+        }
     }
 }

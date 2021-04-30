@@ -46,7 +46,8 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Popular_
 
     @Override
     public int getItemCount() {
-        return 0;
+        //return 0;   // Returning 0 will show nothing in RecyclerView.
+        return popularList.size();
     }
 
     public static class Popular_View_Holder extends RecyclerView.ViewHolder {

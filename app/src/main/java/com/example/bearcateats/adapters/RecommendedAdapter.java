@@ -29,7 +29,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
     @NonNull
     @Override
     public RecommendedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.popular_recycler_items, parent, false);
+        //View view = LayoutInflater.from(context).inflate(R.layout.popular_recycler_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recommended_recyvler_items, parent, false);
         return new RecommendedViewHolder(view);
     }
 
@@ -48,7 +49,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
 
     @Override
     public int getItemCount() {
-        return 0;
+        //return 0;   // Returning 0 will show nothing in RecyclerView.
+        return recommendedList.size();
     }
 
     public static class RecommendedViewHolder extends RecyclerView.ViewHolder{
