@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
                             if (response.body() != null) {
                                 response.code();
                                 getPopularData(response.body().get(0).getPopular());
-
                                 getRecommendedData(response.body().get(0).getRecommended());
+                                getAllMenu(response.body().get(0).getAllmenu());
                             }
                         }
                     }

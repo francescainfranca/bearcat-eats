@@ -40,7 +40,7 @@ public class AllMenuAdapter extends RecyclerView.Adapter<AllMenuAdapter.AllMenuV
     public void onBindViewHolder(@NonNull AllMenuViewHolder holder, final int position) {
 
         holder.allMenuName.setText(allmenuList.get(position).getName());
-        holder.allMenuPrice.setText("₹ "+allmenuList.get(position).getPrice());
+        holder.allMenuPrice.setText("$ "+allmenuList.get(position).getPrice());
         holder.allMenuTime.setText(allmenuList.get(position).getDeliveryTime());
         holder.allMenuRating.setText(allmenuList.get(position).getRating());
         holder.allMenuCharges.setText(allmenuList.get(position).getDeliveryCharges());
