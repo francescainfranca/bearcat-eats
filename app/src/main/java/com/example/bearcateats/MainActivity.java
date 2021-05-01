@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<FoodData>>() {
             @Override
             public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
-                call.enqueue(new Callback<List<FoodData>>() {
+                call.clone().enqueue(new Callback<List<FoodData>>() {
                     @Override
                     public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
                         if (response.isSuccessful()) {
