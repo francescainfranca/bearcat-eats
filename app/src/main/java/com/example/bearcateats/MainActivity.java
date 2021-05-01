@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
+                                response.code();
                                 getPopularData(response.body().get(0).getPopular());
 
                                 getRecommendedData(response.body().get(0).getRecommended());
@@ -60,14 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<FoodData>> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, "Server is not responding.", Toast.LENGTH_SHORT).show();
+                        response.code();
+                        Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
 
             @Override
             public void onFailure(Call<List<FoodData>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Server is not responding.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
