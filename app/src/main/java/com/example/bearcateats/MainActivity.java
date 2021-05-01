@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Server is not responding.", Toast.LENGTH_SHORT).show();
             }
         });
-
+    }
         private void getPopularData(List<Popular> popularList){
 
             popularRecyclerView = findViewById(R.id.popular_recycler);
@@ -100,4 +100,3 @@ public class MainActivity extends AppCompatActivity {
             allMenuAdapter.notifyDataSetChanged();
         }
     }
-}
